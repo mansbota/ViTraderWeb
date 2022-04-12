@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -31,4 +32,10 @@ public class User {
 
     @Column(name = "is_admin")
     private boolean isAdmin;
+
+    @OneToMany(mappedBy = "user")
+    private List<Trade> trades;
+
+    @OneToMany(mappedBy = "user")
+    private List<Position> positions;
 }
