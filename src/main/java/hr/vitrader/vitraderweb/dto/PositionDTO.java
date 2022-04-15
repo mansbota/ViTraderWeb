@@ -11,8 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PositionDTO {
 
-    private Long id;
-    private UserDTO userDto;
-    private CryptoDTO cryptoDto;
+    private Long userId;
+    private Long cryptoId;
     private double amount;
 }

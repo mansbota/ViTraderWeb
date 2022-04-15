@@ -9,8 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CryptoDTO {
+public class TradeDTO {
 
-    private String ticker;
-    private String name;
+    private Long cryptoId;
+    private Long userId;
+    private String tradeType;
+    private double cryptoAmount;
+    private double dollarsAmount;
 }

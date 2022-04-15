@@ -1,13 +1,17 @@
 package hr.vitrader.vitraderweb.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "user")
 public class User {
 
@@ -18,7 +22,7 @@ public class User {
     @OneToOne
     private Person person;
 
-    @Column(name = "username")
+    @Column(name = "user_name")
     private String userName;
 
     @Column(name = "password", length = 64)
@@ -27,11 +31,8 @@ public class User {
     @Column(name = "date_created")
     private LocalDate dateCreated;
 
-    @Column(name = "is_validated")
-    private boolean isValidated;
-
-    @Column(name = "is_admin")
-    private boolean isAdmin;
+    @Column(name = "dollars_amount")
+    private double dollarsAmount;
 
     @OneToMany(mappedBy = "user")
     private List<Trade> trades;

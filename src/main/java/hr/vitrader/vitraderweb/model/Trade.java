@@ -1,11 +1,15 @@
 package hr.vitrader.vitraderweb.model;
 
-import lombok.Data;
+import hr.vitrader.vitraderweb.model.enums.TradeType;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "trade")
 public class Trade {
 
@@ -21,10 +25,12 @@ public class Trade {
     @JoinColumn(name = "crypto_id", referencedColumnName = "id")
     private Crypto crypto;
 
-    @ManyToOne
-    @JoinColumn(name = "trade_type_id", referencedColumnName = "id")
+    @Enumerated(value = EnumType.STRING)
     private TradeType tradeType;
 
-    @Column(name = "trade_amount")
-    private double tradeAmount;
+    @Column(name = "crypto_amount")
+    private double cryptoAmount;
+
+    @Column(name = "dollars_amount")
+    private double dollarsAmount;
 }

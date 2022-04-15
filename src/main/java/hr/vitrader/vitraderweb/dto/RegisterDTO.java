@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CryptoDTO {
+public class RegisterDTO {
 
-    private String ticker;
-    private String name;
+    private PersonDTO personDto;
+    private UserDTO userDto;
 }

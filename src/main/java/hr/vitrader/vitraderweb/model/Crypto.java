@@ -1,11 +1,15 @@
 package hr.vitrader.vitraderweb.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "crypto")
 public class Crypto {
 
@@ -18,4 +22,10 @@ public class Crypto {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "crypto")
+    private List<Trade> trades;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "crypto")
+    private List<Position> positions;
 }
